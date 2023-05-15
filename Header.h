@@ -316,4 +316,121 @@ class Laptops:public Customer{
 				cout<<"Invalid Entry";
 				break;
 			}
+				//for customer to continue shopping 
+			
+		bool valid2 = true;
+		
+		do {
+				cout << "\nDo you want to continue Shopping?(Y/N) ";
+				cin >> cont2;
+	
+			if ((cont2 == 'y') || (cont2 == 'Y') || (cont2 == 'n') || (cont2 == 'N')) 
+				{
+				
+							valid2 = true;
+				}
+				else 
+					{
+						cout << "Invalid Entry" << endl;
+					
+						valid2 = false;
+							continue;
+					}
+			} while (!valid2);
+			
+		} while (cont2 == 'y' || cont2 == 'Y');
+	
+	}
+};
+
+//base class of customer 
+
+class HeadPhones:public Customer{
+	private:
+		int qnt3;
+		
+	public:
+		
+		//to show itmen in HeadPhones Catagory
+		
+	void showHeadPhoneMenu()
+	{
+	    cout << "- - - - - - - - - - -"
+	         << " - -\nItem       Cost\n";
+	    cout << "1.Sennheiser  $800/-\n";
+	    cout << "2.Sony     $700/-\n";
+	    cout << "3.Bose   $600/-\n";
+	    cout << "- - - - - - - - - - - - -\n";
+	}
+	
+	//to get quantity
+	
+	void getqt()
+	{
+		cout<<"Enter the Number of items you want: "<<endl;
+		cin>>qnt3;
+	}
+	
+	// funtion for choices
+	
+	void get_item()
+	{
+		char cont3='n';
+		int choose2;
+		
+		//Customer  to chose from diff catagories
+		
+		do
+		{
+			cout<<"\nEnter number from the above items: ";
+			cin>>choose2;
+			
+			//if else for differnet options
+			
+			if(choose2==1)
+				{
+					getqt();
+					string it1="Sennheiser , $800 ,";
+					price=price+(800*qnt3)+ship_price;
+					cout<<"Item\t\tQunatity  \tPrice\t\tTax\tShipping Charges \t\tTotal Prize\n\n";
+					cout<<"Sennheiser\t "<<qnt3<<"\t\t"<<"$"<<800*qnt3;
+					billing();
+					FileHand(it1,qnt3);	
+					
+				}
+				
+			else 
+				if(choose2==2)
+				{
+					getqt();
+					string it2="Sony , $700 ,";
+					price=price+(700*qnt3)+ship_price;	
+					cout<<"Item\t\tQunatity  \tPrice\t\tTax\tShipping Charges \t  Total Prize\n\n";
+					cout<<"Sony\t\t  "<<qnt3<<"\t\t"<<"$"<<700*qnt3;
+					billing();
+					FileHand(it2,qnt3);	
+				}
+				
+			else 
+				if(choose2==3)
+				{
+					getqt();
+					string it3="Bose , $600 ,";
+					price=price+(600*qnt3)+ship_price;
+					cout<<"Item\t\tQunatity  \tPrice\t\tTax\tShipping Charges \t  Total Prize\n\n";
+					cout<<"Bose\t\t"<<qnt3<<"\t\t"<<"$"<<600*qnt3;
+					billing();	
+					FileHand(it3,qnt3);		
+				}
+				
+			else 
+				{
+					cout<<"Invalid Entry";
+					break;
+				}
+		
+		//for continue shopping
+		
+			bool valid3 = true;
+					
 			

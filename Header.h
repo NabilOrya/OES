@@ -91,4 +91,125 @@ class Customer
 		}
 		
 		//functions to get info of the customer
+			string getname()
+			{
+				return name;
+			}
+		string getcity()
+			{
+				return city;
+			}
+		string getadd()
+			{
+				return address;
+			}
 		
+		//This function will be displayed at the end of the purchase
+		void purch_complt()
+		{
+			cout<<"DEAR "<<name<<" YOUR ORDER WILL BE SHIPPED TO "<<address<<" \nAND YOU WILL RECEIVE THE CONFIRMATION MESSAGE ON YOUR PHONE NO. "<<phoneno;
+		} 
+	
+	//overloading the << operator to show the menu
+	
+	friend ostream & operator << (ostream &out, const Customer &c);
+};
+//definition of function overloading
+
+ostream & operator << (ostream &out, const Customer &c)
+{
+	system("CLS");
+	cout<<"CHOOSE THE DESIRED CATEGORY \n";
+	cout<<"1- PHONES\n";
+	cout<<"2- LAPTOPS\n";
+	cout<<"3- HEADPHONES\n";
+	cout<<"4- EXIT\n";
+}
+
+//initializes the static member price
+double Customer::price=0;
+
+//Derived class of the customer for Phones Catagory
+
+class Phones:public Customer
+{
+	private:
+		 	
+			 int qnt1;
+			 
+	public:
+		
+		//To show Phone items
+	void showPhoneMenu()
+	{
+	    cout << "- - - - - - - - - - -"
+	         << " - -\nItem       Cost\n";
+	    cout << "1.Iphone    $1500/-\n";
+	    cout << "2.Redmi    $500/-\n";
+	    cout << "3.Samsung  $1000/-\n";
+	    cout << "- - - - - - - - - - - - -\n";
+	}
+		//to get quantity
+	void getqt()
+	{
+		cout<<"Enter the Number of items you want: "<<endl;
+		cin>>qnt1;
+	}
+	
+		//virtual function to get items for phones
+		
+	void get_item()
+	{
+		char cont1='n';
+		
+		int choose;
+		do
+		{
+			cout<<"Enter number from the above items: ";
+			cin>>choose;
+			
+			//If Else for choosign different options
+			
+		if(choose==1)
+			{
+				getqt();
+				string items="Iphone , $1500 ,";
+				price=price+(1500*qnt1)+ship_price;
+				
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"Iphone\t\t"<<qnt1<<"\t\t"<<"$"<<1500*qnt1;
+				billing();
+				FileHand(items,qnt1);
+			}
+			
+		else
+			if(choose==2)
+			{
+				getqt();
+				string items2="Redmi , $500 ,";
+				price=price+(500*qnt1)+ship_price;
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"Redmi\t\t"<<qnt1<<"\t\t"<<"$"<<500*qnt1;
+				billing();
+				FileHand(items2,qnt1);
+			}
+			
+		else 
+			if(choose==3)
+			{
+				getqt();
+				string items3="Samsung , $1000 ,";
+				price=price+(1000*qnt1)+ship_price;		
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"Samsung\t\t"<<qnt1<<"\t\t"<<"$"<<1000*qnt1;
+				billing();
+				FileHand(items3,qnt1);
+			}
+			
+		else 
+			{
+				cout<<"Invalid Entry";
+				break;
+			}
+		
+		bool valid1 = true;

@@ -432,5 +432,23 @@ class HeadPhones:public Customer{
 		//for continue shopping
 		
 			bool valid3 = true;
-					
+					do {
+					cout << "\nDo you want to continue Shopping?(Y/N) ";
+					cin >> cont3;
+		
+					if ((cont3 == 'y') || (cont3 == 'Y') || (cont3 == 'n') || (cont3 == 'N')) {
+						valid3 = true;
+					}
+					else 
+					{
+						cout << "Invalid Entry" << endl;
+						
+						valid3 = false;
+					}
+				} while (!valid3);
+
+	} while (cont3 == 'y' || cont3 == 'Y');
+}
+	
+};			
 			

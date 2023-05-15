@@ -213,3 +213,107 @@ class Phones:public Customer
 			}
 		
 		bool valid1 = true;
+			do 
+			{
+				cout << "\nDo you want to continue Shopping?(Y/N) ";
+				cin >> cont1;
+	
+				if ((cont1 == 'y') || (cont1 == 'Y') || (cont1 == 'n') || (cont1 == 'N')) {
+					valid1 = true;
+				}
+				else 
+				{
+					cout << "Invalid Entry" << endl;
+					valid1 = false;
+				}
+			} while (!valid1);
+	
+	} while (cont1 == 'y' || cont1 == 'Y');
+	}
+
+}; 
+
+//base class of customer 
+class Laptops:public Customer{
+	private:
+		int qnt2;
+	public:
+		
+		//To show Items in laptop catagory
+	void showLaptopMenu()
+	{
+	    cout << "- - - - - - - - - - -"
+	         << " - -\nItem       Cost\n";
+	    cout << "1.Macbook  $2000/-\n";
+	    cout << "2.HP       $1000/-\n";
+	    cout << "3.Lenovo   $500/-\n";
+	    cout << "- - - - - - - - - - - - -\n";
+	}
+	
+	//to get qunatity
+	
+		void getqt()
+	{
+		cout<<"Enter the Number of items you want: "<<endl;
+		cin>>qnt2;
+	}
+	
+	//funtion for choices 
+	
+	void get_item()
+	{
+		char cont2='n';
+		int choose1;
+		
+		do
+		{
+		cout<<"\nEnter number from the above items: ";
+		cin>>choose1;
+		
+		//if else for different choices
+		
+		if(choose1==1)
+		
+			{
+				getqt();
+				string itm1="MacBook , $2000 ,";
+				price=price  +(2000*qnt2) + ship_price;
+				
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"Macbook\t\t"<<qnt2<<"\t\t"<<"$"<<2000*qnt2;
+				billing();
+				FileHand(itm1,qnt2);
+			}
+			
+		else 
+			if(choose1==2)
+			{
+				getqt();
+				string itm2="HP , $1000 ,";
+				price=price+(1000*qnt2)+ship_price;	
+					
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"HP\t\t"<<qnt2<<"\t\t"<<"$"<<1000*qnt2;
+				billing();
+				FileHand(itm2,qnt2);
+			}
+			
+		else 
+			if(choose1==3)
+			{
+				getqt();
+				string itm3="Lenovo , $500 ,";
+				price=price+(500*qnt2)+ship_price;	
+				
+				cout<<"Item\t  Qunatity  \t\tPrice\t\tTax \t\tShipping Charges\tTotal Prize\n\n";
+				cout<<"Lenovo\t\t"<<qnt2<<"\t\t"<<"$"<<500*qnt2;
+				billing();
+				FileHand(itm3,qnt2);	
+			}
+			
+		else 
+			{
+				cout<<"Invalid Entry";
+				break;
+			}
+			

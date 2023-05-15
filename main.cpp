@@ -58,4 +58,60 @@ int main()
 				ptr2->get_item();
 			}
 	else
+		if(choice1==3)
+			{
+				ptr3=&Headph;		//for HeadPhones catagory
+				Headph.showHeadPhoneMenu();
+				ptr3->get_item();
+			}
+			
+	
+		//for exit
+			
+		else
+		 if(choice1==4)
+			{
+				break;
+			}
+		else 
+			{
+				cout<<"Invalid Input";
+				
+				cont='y';
+			}
+		
+		bool valid = true;
+				
+
+		do {
+			
+			cout << "\nDo you want to continue?(Y/N) ";
+			
+			cin >> cont;
+
+			if ((cont == 'y') || (cont == 'Y') || (cont == 'n') || (cont == 'N')) 
+			
+			{
+				
+					valid = true;
+					
+			}
+			
+			else 
+				{
+					cout << "Invalid Entry" << endl;
+					valid = false;
+				}
+		} while (!valid);
+
+	} while (cont == 'y' || cont == 'Y');
+		
+		//Ending Message to Customer
+	ctmr.purch_complt();
+	
+	cout<<"\n\t\t\t\t_________________________\n";
+	cout<<"\n\n\t\t\t\tTHNAKS FOR YOUR VISIT\n";
+	cout<<"\t\t\t\t_________________________\n";
+	system("pause");
+}
 		

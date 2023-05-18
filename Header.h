@@ -11,7 +11,7 @@ class Customer
 {
 	protected:
 		string name,city,address;
-		int phoneno;
+		float phoneno;
 		string Filename;
 		static double price;
 		float tax;

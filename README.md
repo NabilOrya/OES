@@ -1,2 +1,2 @@
 # OES
-Online E-Shopping.
+Online E-Shopping prototype.
